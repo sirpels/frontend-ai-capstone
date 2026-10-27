@@ -206,6 +206,43 @@ header {
   font-size:12px;
   color:#d1bb77
 }
+.project-links {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px
+}
+.project-links a {
+  display:inline-flex;
+  align-items:center;
+  min-height:40px;
+  padding:8px 12px;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  font-size:12px;
+  font-weight:600
+}
+.project-links a:hover {
+  background:var(--gold);
+  color:#0b0b0b
+}
+.project-links a::after {
+  content:"\2197";
+  margin-left:5px
+}
+.project-links a:focus-visible {
+  outline:2px solid var(--gold);
+  outline-offset:3px
+}
+.project-content .project-access {
+  margin-top:14px;
+  color:var(--muted);
+  font-size:12px
+}
+.project-access code {
+  color:#f5f5f5;
+  font:inherit
+}
 .about {
   display:grid;
   grid-template-columns:1fr 1fr;
