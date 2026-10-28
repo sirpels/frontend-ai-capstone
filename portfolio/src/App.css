@@ -38,6 +38,9 @@ header {
 .nav-links a:hover,.socials a:hover {
   color:var(--gold)
 }
+.menu-toggle,.mobile-menu {
+  display:none
+}
 .hero {
   padding-top:110px;
   display:grid;
@@ -125,17 +128,6 @@ header {
   padding-top:24px;
   margin-top:24px;
   font-size:12px;
-  color:var(--muted)
-}
-.hero-bottom {
-  grid-column:1/-1;
-  border-top:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  padding-block:26px;
-  margin-top:64px;
-  font-size:12px;
-  letter-spacing:1.1px;
   color:var(--muted)
 }
 .section-heading {
@@ -436,8 +428,9 @@ header {
 }
 @media(max-width:700px) {
   .nav {
+    min-height:72px;
     flex-wrap:wrap;
-    gap:4px;
+    row-gap:0;
     padding-block:14px
   }
   .brand {
@@ -448,10 +441,57 @@ header {
     height:36px
   }
   .nav-links {
-    gap:16px;
-    justify-content:space-between;
+    display:none
+  }
+  .menu-toggle {
+    display:grid;
+    place-items:center;
+    width:44px;
+    height:44px;
+    padding:0;
+    border:1px solid var(--line);
+    background:transparent;
+    color:inherit;
+    cursor:pointer
+  }
+  .menu-toggle:focus-visible {
+    outline:2px solid var(--gold);
+    outline-offset:3px
+  }
+  .hamburger-lines {
+    display:grid;
+    gap:5px
+  }
+  .hamburger-lines span {
+    display:block;
+    width:20px;
+    height:2px;
+    background:currentColor
+  }
+  .mobile-menu:not([hidden]) {
+    display:grid;
     width:100%;
-    font-size:13px
+    padding-top:14px
+  }
+  .mobile-menu a {
+    display:flex;
+    align-items:center;
+    min-height:44px;
+    padding-inline:12px;
+    border-top:1px solid var(--line);
+    font-size:14px
+  }
+  .mobile-menu a:hover {
+    color:var(--gold)
+  }
+  .project-links a {
+    min-height:44px
+  }
+  .socials a,.footer a {
+    display:inline-flex;
+    align-items:center;
+    min-height:44px;
+    padding-block:14px
   }
   .hero {
     grid-template-columns:1fr;
@@ -467,12 +507,6 @@ header {
   }
   .craft {
     display:none
-  }
-  .hero-bottom {
-    margin-top:30px;
-    flex-wrap:wrap;
-    gap:16px;
-    font-size:11px
   }
   .section-heading {
     align-items:start;
