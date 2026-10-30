@@ -191,6 +191,9 @@ header {
   font-size:14px;
   color:#b7b7b7
 }
+.project-content .project-current-focus {
+  margin-top:12px
+}
 .project-content .project-focus {
   margin-top:24px;
   padding-top:18px;
