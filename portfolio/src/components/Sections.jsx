@@ -13,8 +13,8 @@ const codeExamples = [
   {
     label: 'JavaScript',
     code: [
-      "const menu = document.querySelector('[data-menu]')",
-      '',
+      'const menu =',
+      "  document.querySelector('.menu')",
       "menu?.classList.toggle('open')",
     ].join('\n'),
   },

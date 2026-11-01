@@ -98,6 +98,7 @@ header {
 }
 .craft {
   align-self:center;
+  height:400px;
   border:1px solid #343029;
   padding:26px;
   background:linear-gradient(145deg,#191710,#101010);
@@ -109,10 +110,7 @@ header {
   letter-spacing:1.7px
 }
 .code-display {
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  min-height:124px;
+  position:relative;
   height:124px;
   margin-block:28px 24px;
   color:#dad7cd
@@ -125,11 +123,12 @@ header {
   text-transform:uppercase
 }
 .code-display pre {
+  position:absolute;
+  inset:24px 0 0;
   height:90px;
-  margin:10px 0 0;
+  margin:0;
   font:11px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
+  white-space:pre;
   overflow:hidden
 }
 .code-display code {
@@ -426,10 +425,14 @@ header {
     letter-spacing:-2px
   }
   .craft {
+    height:360px;
     padding:18px
   }
   .code-display {
     margin-block:20px
+  }
+  .code-display pre {
+    font-size:9px
   }
   .craft h2 {
     font-size:19px
@@ -527,9 +530,13 @@ header {
     font-size:16px
   }
   .craft {
+    height:360px;
     min-width:0;
     max-width:100%;
     transform:none
+  }
+  .code-display pre {
+    font-size:10px
   }
   .section-heading {
     align-items:start;
