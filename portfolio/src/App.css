@@ -108,15 +108,26 @@ header {
   font-size:12px;
   letter-spacing:1.7px
 }
-.code-mark {
-  font-family:monospace;
-  font-size:80px;
-  letter-spacing:-10px;
-  color:#dad7cd;
-  margin-block:35px
+.code-display {
+  min-height:112px;
+  margin-block:28px 24px;
+  color:#dad7cd
 }
-.code-mark span {
-  color:var(--gold)
+.code-label {
+  color:var(--gold);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:1.3px;
+  text-transform:uppercase
+}
+.code-display pre {
+  margin:10px 0 0;
+  font:11px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere
+}
+.code-display code {
+  font:inherit
 }
 .craft h2 {
   font-size:22px;
@@ -410,8 +421,9 @@ header {
   .craft {
     padding:18px
   }
-  .code-mark {
-    font-size:65px
+  .code-display {
+    min-height:100px;
+    margin-block:20px
   }
   .craft h2 {
     font-size:19px
@@ -509,7 +521,9 @@ header {
     font-size:16px
   }
   .craft {
-    display:none
+    min-width:0;
+    max-width:100%;
+    transform:none
   }
   .section-heading {
     align-items:start;

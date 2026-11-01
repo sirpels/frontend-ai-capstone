@@ -1,6 +1,84 @@
 import { useEffect, useRef, useState } from 'react';
 import ContactForm from './ContactForm';
 const booking = 'https://cal.com/sirpelzbuilds/30-minute-intro-call';
+const codeExamples = [
+  {
+    label: 'Liquid',
+    code: [
+      '{% if product.available %}',
+      '  {{ product.title }}',
+      '{% endif %}',
+    ].join('\n'),
+  },
+  {
+    label: 'JavaScript',
+    code: [
+      "const projects = document.querySelectorAll('[data-project]')",
+      '',
+      'projects.forEach((project) => {',
+      "  project.classList.add('ready')",
+      '})',
+    ].join('\n'),
+  },
+  {
+    label: 'Terminal',
+    code: [
+      'npm run lint',
+      'npm run build',
+      'git push origin main',
+    ].join('\n'),
+  },
+];
+
+function ApproachCard() {
+  const [exampleIndex, setExampleIndex] = useState(0);
+  const [visibleCharacters, setVisibleCharacters] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  );
+  const example = codeExamples[exampleIndex];
+
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updatePreference = () => setReducedMotion(preference.matches);
+    preference.addEventListener('change', updatePreference);
+    return () => preference.removeEventListener('change', updatePreference);
+  }, []);
+
+  useEffect(() => {
+    let timer;
+    if (reducedMotion) {
+      timer = window.setTimeout(() => {
+        setExampleIndex(index => (index + 1) % codeExamples.length);
+        setVisibleCharacters(0);
+      }, 4000);
+    } else if (visibleCharacters < example.code.length) {
+      timer = window.setTimeout(() => {
+        setVisibleCharacters(count => Math.min(count + 1, example.code.length));
+      }, 18);
+    } else {
+      timer = window.setTimeout(() => {
+        setExampleIndex(index => (index + 1) % codeExamples.length);
+        setVisibleCharacters(0);
+      }, 1400);
+    }
+
+    return () => window.clearTimeout(timer);
+  }, [example.code.length, reducedMotion, visibleCharacters]);
+
+  const displayedCode = reducedMotion ? example.code : example.code.slice(0, visibleCharacters);
+
+  return <aside className="craft">
+    <small>01 / THE APPROACH</small>
+    <div className="code-display">
+      <span className="code-label">{example.label}</span>
+      <pre><code>{displayedCode}</code></pre>
+    </div>
+    <h2>Built with intention.<br /><em>Not just generated.</em></h2>
+    <p>Understand → Build → Test → Ship</p>
+  </aside>;
+}
+
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButton = useRef(null);
@@ -41,7 +119,7 @@ export function Navbar() {
     </nav>
   </header>;
 }
-export function Hero() { return <section id="home" className="container hero"><div><h1>Oluwapelumi<span>.</span></h1><p className="position">Frontend Developer | Shopify Specialist <em>| AI-Assisted Development</em></p><p>I build responsive websites, frontend applications, and Shopify storefronts with modern frontend tools and an AI-assisted workflow, focusing on practical, user-focused experiences.</p><p className="muted">My focus is simple: understand the problem, build clearly, test properly, and ship work I can explain.</p><div className="actions"><a className="button primary" href="#projects">View My Work ↘</a><a className="button" href="/oluwapelumi-cv.pdf" download>Download CV ↓</a></div></div><aside className="craft"><small>01 / THE APPROACH</small><div className="code-mark" aria-hidden="true">&lt;<span>/</span>&gt;</div><h2>Built with intention.<br /><em>Not just generated.</em></h2><p>Understand → Build → Test → Ship</p></aside></section>; }
+export function Hero() { return <section id="home" className="container hero"><div><h1>Oluwapelumi<span>.</span></h1><p className="position">Frontend Developer | Shopify Specialist <em>| AI-Assisted Development</em></p><p>I build responsive websites, frontend applications, and Shopify storefronts with modern frontend tools and an AI-assisted workflow, focusing on practical, user-focused experiences.</p><p className="muted">My focus is simple: understand the problem, build clearly, test properly, and ship work I can explain.</p><div className="actions"><a className="button primary" href="#projects">View My Work ↘</a><a className="button" href="/oluwapelumi-cv.pdf" download>Download CV ↓</a></div></div><ApproachCard /></section>; }
 export function About() { return <section id="about" className="section about"><div><p className="eyebrow">02 / ABOUT ME</p><h2>A thoughtful approach.<br /><em>A practical outcome.</em></h2><div className="skills">{['HTML', 'CSS', 'JavaScript', 'React', 'Shopify Liquid'].map(s => <span key={s}>{s}</span>)}</div></div><div className="prose"><p>I’m Oluwapelumi, a Frontend and Shopify Developer building practical, responsive web experiences for businesses and real-world projects.</p><p>I work with HTML, CSS, JavaScript, React, Shopify Liquid, and modern frontend tools to build websites and storefronts that are clear, usable, and easy to maintain.</p><p>I also use AI as part of my development workflow for research, planning, debugging, and reviewing my work, while making sure I understand and can explain the final decisions I ship.</p><p>My focus is simple: understand the problem, build the right solution, test it properly, and keep improving.</p></div></section>; }
 const work = [['Drift Line', 'Custom Shopify Online Store 2.0 theme using Liquid, HTML, CSS, JavaScript and JSON.', 'SHOPIFY / THEME DEVELOPMENT'], ['AI Frontend Project Planner', 'AI agent/project designed to help me think through frontend projects before coding and create a human/AI delegation plan.', 'AI / DEVELOPMENT WORKFLOW']];
 export function Building() { return <section id="building" className="section"><div className="section-heading"><div><p className="eyebrow">03 / ON THE WORKBENCH</p><h2>What I’m building</h2></div><p>Work in progress.<br />Learning through real projects.</p></div><div className="building-grid">{work.map(([name, description, type]) => <article className="building-card" key={name}><span className="status">◌ In progress</span><h3>{name}</h3><p>{description}</p><small>{type}</small></article>)}</div></section>; }
