@@ -109,7 +109,11 @@ header {
   letter-spacing:1.7px
 }
 .code-display {
-  min-height:112px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  min-height:124px;
+  height:124px;
   margin-block:28px 24px;
   color:#dad7cd
 }
@@ -121,12 +125,15 @@ header {
   text-transform:uppercase
 }
 .code-display pre {
+  height:90px;
   margin:10px 0 0;
   font:11px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;
   white-space:pre-wrap;
-  overflow-wrap:anywhere
+  overflow-wrap:anywhere;
+  overflow:hidden
 }
 .code-display code {
+  display:block;
   font:inherit
 }
 .craft h2 {
@@ -422,7 +429,6 @@ header {
     padding:18px
   }
   .code-display {
-    min-height:100px;
     margin-block:20px
   }
   .craft h2 {

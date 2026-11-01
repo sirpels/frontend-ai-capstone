@@ -13,11 +13,9 @@ const codeExamples = [
   {
     label: 'JavaScript',
     code: [
-      "const projects = document.querySelectorAll('[data-project]')",
+      "const menu = document.querySelector('[data-menu]')",
       '',
-      'projects.forEach((project) => {',
-      "  project.classList.add('ready')",
-      '})',
+      "menu?.classList.toggle('open')",
     ].join('\n'),
   },
   {
