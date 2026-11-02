@@ -412,6 +412,16 @@ header {
   padding-block:28px;
   font-size:12px
 }
+.footer-badge {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  flex:none
+}
+.footer-badge a {
+  min-height:44px
+}
 .footer p,.footer>a:last-child {
   color:var(--muted)
 }

@@ -122,4 +122,110 @@ export function About() { return <section id="about" className="section about"><
 const work = [['Drift Line', 'Custom Shopify Online Store 2.0 theme using Liquid, HTML, CSS, JavaScript and JSON.', 'SHOPIFY / THEME DEVELOPMENT'], ['AI Frontend Project Planner', 'AI agent/project designed to help me think through frontend projects before coding and create a human/AI delegation plan.', 'AI / DEVELOPMENT WORKFLOW']];
 export function Building() { return <section id="building" className="section"><div className="section-heading"><div><p className="eyebrow">03 / ON THE WORKBENCH</p><h2>What I’m building</h2></div><p>Work in progress.<br />Learning through real projects.</p></div><div className="building-grid">{work.map(([name, description, type]) => <article className="building-card" key={name}><span className="status">◌ In progress</span><h3>{name}</h3><p>{description}</p><small>{type}</small></article>)}</div></section>; }
 export function Contact() { return <section id="contact" className="section contact"><p className="eyebrow">04 / LET’S CONNECT</p><h2>Have something<br />worth <span>building?</span></h2><div className="contact-bottom"><p>Let’s talk about your website, storefront,<br />or next frontend project.</p><a className="button primary" href={booking} target="_blank" rel="noreferrer">Book a Call ↗</a></div><ContactForm /><div className="socials"><a href="https://www.linkedin.com/in/oluwapelumi-solomon-6b77ab222" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/sirpels" target="_blank" rel="noreferrer">GitHub ↗</a><a href={booking} target="_blank" rel="noreferrer">Cal.com ↗</a></div></section>; }
-export function Footer() { return <footer className="container footer"><a href="#home">SirPelzBuilds</a><p>Built clearly. Always improving.</p><a href="#home">Back to top ↑</a></footer>; }
+export function Footer() { return <footer className="container footer">
+  <a href="#home">SirPelzBuilds</a>
+  <p>Built clearly. Always improving.</p>
+  <div className="footer-badge">
+    <a
+      href="https://internship.flyrank.ai/verify?id=FR-D1-DF495-F96A4&first_name=Oluwapelumi"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Verify Oluwapelumi Solomon's FlyRank AI Internship credential"
+      style={{
+        boxSizing: "border-box",
+        margin: "0",
+        padding: "6px 14px 6px 11px",
+        border: "1px solid rgba(255,255,255,0.1)",
+        background: "#051F21",
+        textDecoration: "none",
+        fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif",
+        fontStyle: "normal",
+        lineHeight: "1.25",
+        textTransform: "none",
+        float: "none",
+        WebkitFontSmoothing: "antialiased",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "8px",
+        borderRadius: "9999px",
+        verticalAlign: "middle",
+        whiteSpace: "nowrap"
+      }}
+    >
+      <svg
+        width="11"
+        height="15"
+        viewBox="26 18 44 60"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        focusable="false"
+        style={{
+          display: "block",
+          flex: "none",
+          opacity: "1",
+          transform: "none",
+          maxWidth: "none"
+        }}
+      >
+        <path
+          d="M28.2354 74.2202V67.9039C29.6419 68.4369 31.3724 68.7055 33.4311 68.7055C35.3235 68.7055 36.8153 68.2396 37.8979 67.3079C38.9805 66.3762 39.9566 64.8695 40.8218 62.792L42.6887 58.3139L29.8976 29.2879C35.0038 29.2879 39.6028 32.3307 41.5294 36.9893L47.0746 50.3985L56.0126 28.6038C57.9221 23.9452 62.5168 20.894 67.6187 20.894L50.0795 63.5936C48.4556 67.5933 46.5205 70.5102 44.2743 72.3484C42.0281 74.1867 39.1169 75.1058 35.5451 75.1058C32.6212 75.1058 30.1875 74.812 28.2354 74.2244V74.2202Z"
+          fill="#54E399"
+        />
+      </svg>
+
+      <span
+        style={{
+          margin: "0",
+          padding: "0",
+          border: "0",
+          background: "none",
+          color: "#FFFFFF",
+          fontWeight: "600",
+          fontStyle: "normal",
+          letterSpacing: "normal",
+          textTransform: "none",
+          textDecoration: "none",
+          whiteSpace: "normal",
+          float: "none",
+          fontSize: "13px"
+        }}
+      >
+        FlyRank verified
+      </span>
+
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        focusable="false"
+        style={{
+          display: "block",
+          flex: "none",
+          opacity: "1",
+          transform: "none",
+          maxWidth: "none"
+        }}
+      >
+        <circle
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="#54E399"
+          strokeWidth="1.5"
+        />
+        <path
+          d="M7.9 12.3l2.8 2.8 5.4-5.8"
+          stroke="#54E399"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </a>
+  </div>
+  <a href="#home">Back to top ↑</a>
+</footer>; }
